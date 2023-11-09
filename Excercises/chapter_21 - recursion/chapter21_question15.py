@@ -10,8 +10,20 @@ def print_substrings(s):
     print_substrings(s[1:])
    
 
-print_substrings('abc')
+# def printershrinter(s: str):
+#     if (s == ''):
+#         return s
 
+#     print(s + printershrinter(s[:-1]))
+#     return s
 
-def printershrinter(s: str):
-    print(s)
+# def shrinterprinter(s: str):
+#     if (len(s) == 1):
+#         return s
+    
+#     print(shrinterprinter(s[1:]))
+#     return s
+
+# s = 'abc'
+# printershrinter(s)
+
