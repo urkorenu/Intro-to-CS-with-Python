@@ -13,6 +13,8 @@
 
 # Code - 
 
+from Question2 import create_2d_array
+
 class ex14():
     def __init__(self):
         """
