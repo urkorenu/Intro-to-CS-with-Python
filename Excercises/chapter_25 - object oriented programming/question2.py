@@ -1,32 +1,32 @@
 class Worker():
-    def __init__(self, id, name, experience):
-        self.id = id
-        self.name = name
+    def __init__(self, id : int, name : str, experience : int) -> None:
+        self.id         = id
+        self.name       = name
         self.experience = experience
 
     def __repr__(self) -> str:
         return f'id: {self.id}, name: {self.name}, experience: {self.experience} '
     
-    def get_salary(self):
+    def get_salary(self) -> int:
         salary = self.experience * 1000
         return salary
     
 class Manager(Worker):
-    def __init__(self, id, name, experience, managed_workers_sum):
+    def __init__(self, id, name, experience, num_workers : int) -> None:
         super().__init__(id, name, experience)
-        self.managed_workers_sum = managed_workers_sum
+        self.num_workers = num_workers
     
     def __repr__(self) -> str:
-        return super().__repr__() + f'workers: {self.managed_workers_sum}'
+        return super().__repr__() + f'workers: {self.num_workers}'
     
-    def get_salary(self):
-        return super().get_salary() + self.managed_workers_sum * 200
+    def get_salary(self) -> int:
+        return super().get_salary() + self.num_workers * 200
     
 class Company():
-    def __init__(self, name, workers):
-        self.name = name
+    def __init__(self, name : str, workers: list) -> None:
+        self.name    = name
         self.workers = workers
-        ids = []
+        ids          = []
         for worker in self.workers:
             if worker.id not in ids:
                 ids.append(worker.id)
@@ -42,7 +42,7 @@ class Company():
     def check_managers(self, threshold : int) -> bool:
         for worker in self.workers:
             if isinstance(worker, Manager):
-                if worker.managed_workers_sum < threshold:
+                if worker.num_workers < threshold:
                     return False
         return True
     
